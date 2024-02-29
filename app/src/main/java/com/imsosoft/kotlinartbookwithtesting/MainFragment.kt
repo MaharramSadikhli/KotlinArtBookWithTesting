@@ -3,6 +3,7 @@ package com.imsosoft.kotlinartbookwithtesting
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
 import com.imsosoft.kotlinartbookwithtesting.databinding.FragmentMainBinding
 
 class MainFragment: Fragment(R.layout.fragment_main) {
@@ -13,6 +14,11 @@ class MainFragment: Fragment(R.layout.fragment_main) {
         super.onViewCreated(view, savedInstanceState)
 
         binding = FragmentMainBinding.bind(view)
+
+        binding.fab.setOnClickListener {
+            val action = MainFragmentDirections.actionMainFragmentToDetailsFragment()
+            Navigation.findNavController(it).navigate(action)
+        }
 
     }
 
