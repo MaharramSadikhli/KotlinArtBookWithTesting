@@ -1,9 +1,10 @@
-package com.imsosoft.kotlinartbookwithtesting
+package com.imsosoft.kotlinartbookwithtesting.view
 
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
+import com.imsosoft.kotlinartbookwithtesting.R
 import com.imsosoft.kotlinartbookwithtesting.databinding.FragmentDetailsBinding
 
 class DetailsFragment: Fragment(R.layout.fragment_details) {

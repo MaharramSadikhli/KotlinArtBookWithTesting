@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.imsosoft.kotlinartbookwithtesting.MainFragment"
+        android:name="com.imsosoft.kotlinartbookwithtesting.view.MainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/detailsFragment"
-        android:name="com.imsosoft.kotlinartbookwithtesting.DetailsFragment"
+        android:name="com.imsosoft.kotlinartbookwithtesting.view.DetailsFragment"
         android:label="fragment_details"
         tools:layout="@layout/fragment_details" >
         <action
@@ -25,7 +25,7 @@
     </fragment>
     <fragment
         android:id="@+id/imageApiFragment"
-        android:name="com.imsosoft.kotlinartbookwithtesting.ImageApiFragment"
+        android:name="com.imsosoft.kotlinartbookwithtesting.view.ImageApiFragment"
         android:label="fragment_api_search"
         tools:layout="@layout/fragment_api_search" />
 </navigation>

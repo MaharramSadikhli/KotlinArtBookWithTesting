@@ -1,10 +1,11 @@
-package com.imsosoft.kotlinartbookwithtesting
+package com.imsosoft.kotlinartbookwithtesting.view
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.imsosoft.kotlinartbookwithtesting.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
