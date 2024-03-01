@@ -10,8 +10,8 @@ interface PixAbayAPI {
 
     @GET(Utils.PATH)
     suspend fun imageSearch(
-        @Query(Utils.QUERY_KEY) apiKey: String = Utils.API_KEY,
         @Query(Utils.QUERY_SEARCH) searchQuery: String,
+        @Query(Utils.QUERY_KEY) apiKey: String = Utils.API_KEY,
     ) : Response<PixAbayResponse>
 
 }
