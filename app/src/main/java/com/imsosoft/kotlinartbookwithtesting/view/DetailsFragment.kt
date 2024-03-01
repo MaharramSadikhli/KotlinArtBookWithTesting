@@ -4,10 +4,16 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
+import com.bumptech.glide.RequestManager
 import com.imsosoft.kotlinartbookwithtesting.R
 import com.imsosoft.kotlinartbookwithtesting.databinding.FragmentDetailsBinding
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
-class DetailsFragment: Fragment(R.layout.fragment_details) {
+@AndroidEntryPoint
+class DetailsFragment @Inject constructor(
+    val glide: RequestManager
+): Fragment(R.layout.fragment_details) {
 
     private lateinit var binding: FragmentDetailsBinding
 
