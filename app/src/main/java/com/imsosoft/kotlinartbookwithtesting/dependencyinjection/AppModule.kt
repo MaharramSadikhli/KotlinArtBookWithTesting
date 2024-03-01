@@ -33,6 +33,7 @@ class AppModule {
     fun injectDao(db: ArtDB) = db.artDao()
 
 
+
     // api injection
     @Singleton
     @Provides
