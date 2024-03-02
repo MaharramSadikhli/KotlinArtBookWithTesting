@@ -7,4 +7,7 @@
     <string name="save">Save</string>
     <string name="art_image">art image</string>
     <string name="search_image">Search Image</string>
+    <string name="art_name">Name: %s</string>
+    <string name="artist_name">Artist Name: %s</string>
+    <string name="year">Year: %s</string>
 </resources>
