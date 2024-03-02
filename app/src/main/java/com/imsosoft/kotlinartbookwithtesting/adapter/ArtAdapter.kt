@@ -16,7 +16,7 @@ class ArtAdapter @Inject constructor(
 ) : RecyclerView.Adapter<ArtAdapter.ArtViewHolder>()
 {
 
-    class ArtViewHolder(val binding: MainRowBinding): RecyclerView.ViewHolder(binding.root) {}
+    class ArtViewHolder(val binding: MainRowBinding): RecyclerView.ViewHolder(binding.root)
 
     private val diffUtil = object : DiffUtil.ItemCallback<ArtEntity>() {
         override fun areItemsTheSame(oldItem: ArtEntity, newItem: ArtEntity): Boolean {
