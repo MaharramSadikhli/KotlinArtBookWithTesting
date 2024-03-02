@@ -31,7 +31,7 @@ class ArtAdapter @Inject constructor(
 
     private val recyclerListDiffer = AsyncListDiffer(this, diffUtil)
 
-    private var arts: List<ArtEntity>
+    var arts: List<ArtEntity>
         get() = recyclerListDiffer.currentList
         set(value) = recyclerListDiffer.submitList(value)
 
