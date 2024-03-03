@@ -1,13 +1,20 @@
 package com.imsosoft.kotlinartbookwithtesting.viewmodel
 
+import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.google.common.truth.Truth
 import com.imsosoft.kotlinartbookwithtesting.getOrAwaitValueForTest
 import com.imsosoft.kotlinartbookwithtesting.repo.FakeArtRepository
 import com.imsosoft.kotlinartbookwithtesting.util.Status
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.junit.Before
+import org.junit.Rule
 import org.junit.Test
 
+@ExperimentalCoroutinesApi
 class ArtViewModelTest {
+
+    @get:Rule
+    var instantTaskExecutorRule = InstantTaskExecutorRule()
 
     private lateinit var viewModel: ArtViewModel
 
@@ -24,7 +31,7 @@ class ArtViewModelTest {
         val valueLiveData = viewModel.insertMessage
         val value = valueLiveData.getOrAwaitValueForTest()
 
-        Truth.assertThat(value).isEqualTo(Status.ERROR)
+        Truth.assertThat(value.status).isEqualTo(Status.ERROR)
 
     }
 
