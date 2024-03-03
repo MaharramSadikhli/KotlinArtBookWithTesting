@@ -20,21 +20,18 @@ import javax.inject.Inject
 
 @AndroidEntryPoint
 class DetailsFragment @Inject constructor(
-    val glide: RequestManager
+    val glide: RequestManager,
 ) : Fragment(R.layout.fragment_details) {
 
     private lateinit var binding: FragmentDetailsBinding
     private lateinit var viewModel: ArtViewModel
-    private val name = binding.nameText.text.toString()
-    private val artistName = binding.artistText.text.toString()
-    private val year = binding.yearText.text.toString()
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding = FragmentDetailsBinding.bind(view)
 
         viewModel = ViewModelProvider(requireActivity())[ArtViewModel::class.java]
-
-        binding = FragmentDetailsBinding.bind(view)
 
         binding.artImageView.setOnClickListener(selectImage)
 
@@ -55,6 +52,9 @@ class DetailsFragment @Inject constructor(
     }
 
     private val save = OnClickListener {
+        val name = binding.nameText.text.toString()
+        val artistName = binding.artistText.text.toString()
+        val year = binding.yearText.text.toString()
         viewModel.makeArt(name, artistName, year)
     }
 
@@ -81,9 +81,12 @@ class DetailsFragment @Inject constructor(
                     findNavController().navigateUp()
                     viewModel.resetInsertMsg()
                 }
+
                 Status.ERROR -> {
-                    Toast.makeText(requireContext(), it.message ?: "Error", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), it.message ?: "Error", Toast.LENGTH_SHORT)
+                        .show()
                 }
+
                 Status.LOADING -> {}
             }
         })

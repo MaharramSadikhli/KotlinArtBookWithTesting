@@ -13,8 +13,10 @@ import com.imsosoft.kotlinartbookwithtesting.R
 import com.imsosoft.kotlinartbookwithtesting.adapter.ArtAdapter
 import com.imsosoft.kotlinartbookwithtesting.databinding.FragmentMainBinding
 import com.imsosoft.kotlinartbookwithtesting.viewmodel.ArtViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
+@AndroidEntryPoint
 class MainFragment @Inject constructor(
     private val artAdapter: ArtAdapter
 ): Fragment(R.layout.fragment_main) {
