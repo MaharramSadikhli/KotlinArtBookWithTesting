@@ -35,4 +35,30 @@ class ArtViewModelTest {
 
     }
 
+    @Test
+    fun `insert art without artist name and returns error`() {
+        viewModel.makeArt("Name Test", "", "2024")
+
+        val valueLiveData = viewModel.insertMessage
+        val value = valueLiveData.getOrAwaitValueForTest()
+
+        println("Status: ${value.status}")
+
+        Truth.assertThat(value.status).isEqualTo(Status.ERROR)
+
+    }
+
+    @Test
+    fun `insert art without year and returns error`() {
+        viewModel.makeArt("Name Test", "test", "")
+
+        val valueLiveData = viewModel.insertMessage
+        val value = valueLiveData.getOrAwaitValueForTest()
+
+        println("Status: ${value.status}")
+
+        Truth.assertThat(value.status).isEqualTo(Status.ERROR)
+
+    }
+
 }
