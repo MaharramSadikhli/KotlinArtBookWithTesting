@@ -95,6 +95,7 @@ dependencies {
     testImplementation(libs.mockito.core)
 
     // android test implementation
+    androidTestImplementation(libs.junit)
     androidTestImplementation(libs.mockito.android)
     androidTestImplementation(libs.mockito.core)
     androidTestImplementation(libs.kotlinx.coroutines.test)
@@ -104,7 +105,7 @@ dependencies {
     kspAndroidTest(libs.hilt.android.compiler)
     debugImplementation(libs.fragment.testing)
 
-    androidTestImplementation(libs.espresso.contrib) {
+    androidTestImplementation("androidx.test.espresso:espresso-contrib:3.5.1") {
         exclude(group = "org.checkerframework", module = "checker")
     }
 
