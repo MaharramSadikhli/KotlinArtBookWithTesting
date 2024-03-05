@@ -7,13 +7,8 @@ import androidx.annotation.StyleRes
 import androidx.core.util.Preconditions
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentFactory
-import androidx.fragment.app.testing.EmptyFragmentActivity
-import androidx.fragment.app.testing.FragmentScenario
-//import androidx.fragment.app.testing.FragmentScenario.EmptyFragmentActivity
 import androidx.test.core.app.ActivityScenario
 import androidx.test.core.app.ApplicationProvider
-import kotlinx.coroutines.ExperimentalCoroutinesApi
-import androidx.fragment.testing.manifest.R.style.FragmentScenarioEmptyFragmentActivityTheme
 
 /**
  * launchFragmentInContainer from the androidx.fragment:fragment-testing library
@@ -24,19 +19,21 @@ import androidx.fragment.testing.manifest.R.style.FragmentScenarioEmptyFragmentA
  * [HiltTestActivity] in the debug folder and include it in the debug AndroidManifest.xml file
  * as can be found in this project.
  */
-
 inline fun <reified T : Fragment> launchFragmentInHiltContainer(
     fragmentArgs: Bundle? = null,
-    @StyleRes themeResId: Int = FragmentScenarioEmptyFragmentActivityTheme,
+    @StyleRes themeResId: Int = androidx.fragment.testing.manifest.R.style.FragmentScenarioEmptyFragmentActivityTheme,
     factory: FragmentFactory,
-    crossinline action: T.() -> Unit = {}
+    crossinline action: Fragment.() -> Unit = {}
 ) {
     val startActivityIntent = Intent.makeMainActivity(
         ComponentName(
             ApplicationProvider.getApplicationContext(),
             HiltTestActivity::class.java
         )
-    ).putExtra(EmptyFragmentActivity.THEME_EXTRAS_BUNDLE_KEY, themeResId)
+    ).putExtra(
+        "androidx.fragment.app.testing.FragmentScenario.EmptyFragmentActivity.THEME_EXTRAS_BUNDLE_KEY",
+        themeResId
+    )
 
     ActivityScenario.launch<HiltTestActivity>(startActivityIntent).onActivity { activity ->
         activity.supportFragmentManager.fragmentFactory = factory
@@ -50,6 +47,6 @@ inline fun <reified T : Fragment> launchFragmentInHiltContainer(
             .add(android.R.id.content, fragment, "")
             .commitNow()
 
-        (fragment as T).action()
+        fragment.action()
     }
 }
