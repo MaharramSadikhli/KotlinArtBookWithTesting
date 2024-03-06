@@ -23,11 +23,11 @@ import javax.inject.Inject
 
 @AndroidEntryPoint
 class ImageApiFragment @Inject constructor(
-    private val imageAdapter: ImageAdapter
+    val imageAdapter: ImageAdapter
 ) : Fragment(R.layout.fragment_api_search) {
 
     private lateinit var binding: FragmentApiSearchBinding
-    private lateinit var viewModel: ArtViewModel
+    lateinit var viewModel: ArtViewModel
     private lateinit var job: Job
 
 
