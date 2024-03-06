@@ -5,6 +5,7 @@ import androidx.fragment.app.FragmentFactory
 import com.bumptech.glide.RequestManager
 import com.imsosoft.kotlinartbookwithtesting.adapter.ArtAdapter
 import com.imsosoft.kotlinartbookwithtesting.adapter.ImageAdapter
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import javax.inject.Inject
 
 class MainFragmentFactory @Inject constructor(
@@ -14,6 +15,7 @@ class MainFragmentFactory @Inject constructor(
 ) : FragmentFactory()
 {
 
+    @OptIn(ExperimentalCoroutinesApi::class)
     override fun instantiate(classLoader: ClassLoader, className: String): Fragment {
 
         return when (className) {
