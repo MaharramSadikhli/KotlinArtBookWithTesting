@@ -8,8 +8,13 @@ import androidx.test.espresso.Espresso
 import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.filters.MediumTest
+import com.google.common.truth.Truth
 import com.imsosoft.kotlinartbookwithtesting.R
+import com.imsosoft.kotlinartbookwithtesting.getOrAwaitValueForAndroidTest
 import com.imsosoft.kotlinartbookwithtesting.launchFragmentInHiltContainer
+import com.imsosoft.kotlinartbookwithtesting.repo.FakeArtRepository
+import com.imsosoft.kotlinartbookwithtesting.roomdb.ArtEntity
+import com.imsosoft.kotlinartbookwithtesting.viewmodel.ArtViewModel
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -75,7 +80,27 @@ class DetailsFragmentTest {
     @Test
     fun testForSaveButton() {
 
+        val testViewModel = ArtViewModel(FakeArtRepository())
 
+        launchFragmentInHiltContainer<DetailsFragment>(
+            factory = fragmentFactory
+        ) {
+            viewModel = testViewModel
+        }
+
+        Espresso.onView(ViewMatchers.withId(R.id.name_text)).perform(ViewActions.replaceText("Mono Lisa"))
+        Espresso.onView(ViewMatchers.withId(R.id.artist_text)).perform(ViewActions.replaceText("Leonardo da Vinci"))
+        Espresso.onView(ViewMatchers.withId(R.id.year_text)).perform(ViewActions.replaceText("1452"))
+        Espresso.onView(ViewMatchers.withId(R.id.save_button)).perform(ViewActions.click())
+
+        Truth.assertThat(testViewModel.artList.getOrAwaitValueForAndroidTest()).contains(
+            ArtEntity(
+                "Mono Lisa",
+                "Leonardo da Vinci",
+                1452,
+                ""
+            )
+        )
 
     }
 
