@@ -7,5 +7,5 @@
 
     <style name="Theme.KotlinArtBookWithTesting" parent="Base.Theme.KotlinArtBookWithTesting" />
 
-    <style name="FragmentScenarioEmptyFragmentActivityTheme" />
+<!--    <style name="FragmentScenarioEmptyFragmentActivityTheme" />-->
 </resources>
