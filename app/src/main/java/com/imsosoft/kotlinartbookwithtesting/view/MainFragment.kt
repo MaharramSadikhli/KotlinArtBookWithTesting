@@ -14,15 +14,17 @@ import com.imsosoft.kotlinartbookwithtesting.adapter.ArtAdapter
 import com.imsosoft.kotlinartbookwithtesting.databinding.FragmentMainBinding
 import com.imsosoft.kotlinartbookwithtesting.viewmodel.ArtViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import javax.inject.Inject
 
+@ExperimentalCoroutinesApi
 @AndroidEntryPoint
 class MainFragment @Inject constructor(
     private val artAdapter: ArtAdapter
 ): Fragment(R.layout.fragment_main) {
 
     private lateinit var binding: FragmentMainBinding
-    private lateinit var viewModel: ArtViewModel
+    lateinit var viewModel: ArtViewModel
 
     private val swipeCallBack = object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
         override fun onMove(
