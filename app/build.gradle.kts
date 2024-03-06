@@ -105,8 +105,14 @@ dependencies {
     kspAndroidTest(libs.hilt.android.compiler)
     debugImplementation(libs.fragment.testing)
 
+
+    implementation(libs.fragment.ktx)
+    implementation(libs.fragment.testing.manifest)
+
     androidTestImplementation("androidx.test.espresso:espresso-contrib:3.5.1") {
         exclude(group = "org.checkerframework", module = "checker")
     }
+
+
 
 }

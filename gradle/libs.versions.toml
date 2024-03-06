@@ -30,7 +30,7 @@ robolectric = "4.8.1"
 truth = "1.4.1"
 mockito = "4.7.0"
 hilt-testing = "2.43.2"
-fragment-testing = "1.7.0-alpha10"
+fragment-testing = "1.6.2"
 
 
 [libraries]
@@ -78,6 +78,8 @@ truth = { group = "com.google.truth", name = "truth", version.ref = "truth" }
 mockito-core = { group = "org.mockito", name = "mockito-core", version.ref = "mockito" }
 mockito-android = { group = "org.mockito", name  = "mockito-android", version.ref = "mockito" }
 fragment-testing = { group = "androidx.fragment", name = "fragment-testing", version.ref = "fragment-testing" }
+fragment-ktx = { group = "androidx.fragment", name = "fragment-ktx", version.ref = "fragment-testing" }
+fragment-testing-manifest = { group = "androidx.fragment", name = "fragment-testing-manifest", version.ref = "fragment-testing" }
 espresso-contrib = { group = "androidx.test.espresso", name = "espresso-contrib", version.ref = "espressoCore" }
 
 
