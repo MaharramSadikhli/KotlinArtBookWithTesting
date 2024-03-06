@@ -36,6 +36,7 @@ class MainFragmentTest {
     }
 
 
+    @OptIn(ExperimentalCoroutinesApi::class)
     @Test
     fun testFabButtonForNavigationToDetailFragment() {
         val navController = Mockito.mock(NavController::class.java)
